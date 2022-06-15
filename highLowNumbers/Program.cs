@@ -6,33 +6,51 @@ namespace highLowNumbers
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("You have to choose a number between 1 - 100");
+            Console.WriteLine("Let's see if you can guess my number. Good Luck");
+
             Random random = new Random();
+            int minNumber = 0;
+            int maxNumber = 10;
+            bool keepPlaying = true;
+            int numberOfGuesses = 0;
+            int randomNumber = random.Next(minNumber, maxNumber);
 
-            int lowNumber = 1;
-            int highNumber = 101;
-
-            int randomNumber = random.Next(lowNumber, highNumber);
-            Console.WriteLine($"You have to enter a number and try to guess what number the computer choose ");
-            Console.WriteLine("Hint - The number supposed to be between 1 - 100: ");
-
-            int userNumber = Convert.ToInt32(Console.ReadLine());
-
-
-            if (randomNumber > userNumber)
+            while (keepPlaying)             
             {
+                Console.WriteLine("Please enter the number you are thinking :");
+                int userNumber = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Your number is to low: ");
-
-            }
-            if (randomNumber < userNumber)
-            {
-                Console.WriteLine("Your number is to high");
-            }
-            if (randomNumber ==  userNumber)
-            {
-                Console.WriteLine("You win !!!");
-            }
-            Console.WriteLine(randomNumber);
+                if (randomNumber > userNumber)
+                {
+                    Console.WriteLine("The number is to low");
+                    numberOfGuesses++;
+                }
+                else if (randomNumber < userNumber)
+                {
+                    Console.WriteLine("The number is to high");
+                    numberOfGuesses++;
+                }
+                else
+                {
+                    if (randomNumber == userNumber)
+                    {
+                        Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
+                    }
+                       
+                    else
+                    {
+                        Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
+                    }
+                    Console.WriteLine("Would you like to play again? Press y or n ");
+                    string quit = Console.ReadLine();
+                    if (quit == "n")
+                    {
+                        keepPlaying = false;
+                        break;
+                    }
+                }
+            }         
         }
     }
 }
