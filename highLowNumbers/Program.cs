@@ -11,8 +11,9 @@ namespace highLowNumbers
 
             Random random = new Random();
             int minNumber = 0;
-            int maxNumber = 10;
+            int maxNumber = 101;
             bool keepPlaying = true;
+            int limitGuesses = 5;
             int numberOfGuesses = 0;
             int randomNumber = random.Next(minNumber, maxNumber);
 
@@ -24,11 +25,13 @@ namespace highLowNumbers
                 if (randomNumber > userNumber)
                 {
                     Console.WriteLine("The number is to low");
+                    Console.WriteLine($"You have only {limitGuesses - numberOfGuesses} left !");
                     numberOfGuesses++;
                 }
                 else if (randomNumber < userNumber)
                 {
                     Console.WriteLine("The number is to high");
+                    Console.WriteLine($"You have only {limitGuesses - numberOfGuesses} left !");
                     numberOfGuesses++;
                 }
                 else
