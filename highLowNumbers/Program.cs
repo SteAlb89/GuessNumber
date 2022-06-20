@@ -15,7 +15,8 @@
             int limitGuesses = 5;
             int numberOfGuesses = 0;
             int randomNumber = random.Next(minNumber, maxNumber);
-            int number = 1234567890;
+            
+            
             
 
 
@@ -23,8 +24,11 @@
             {
                
                 Console.WriteLine("Please enter the number you are thinking :");
-                bool userNumber = int.TryParse(Console.ReadLine(), out number);
-                if (!userNumber)
+                int userNumber = Console.ReadLine();
+                int number = 1234567890;
+
+               bool go = int.TryParse(userNumber, out number);
+                if (go == true)
                 {
                     Console.WriteLine("Please insert a whole number , like 1,2,3,4 ...");
                     return;
