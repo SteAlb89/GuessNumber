@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace highLowNumbers
+﻿namespace highLowNumbers
 {
     internal class Program
     {
@@ -17,12 +15,20 @@ namespace highLowNumbers
             int limitGuesses = 5;
             int numberOfGuesses = 0;
             int randomNumber = random.Next(minNumber, maxNumber);
+            int number = 1234567890;
+
 
             for (int i = 0; i <= limitGuesses; i++)
             {
 
                 Console.WriteLine("Please enter the number you are thinking :");
                 int userNumber = Convert.ToInt32(Console.ReadLine());
+                bool s = int.TryParse(userNumber, out number);
+                if (!s)
+                {
+                    Console.WriteLine("Please insert a whole number , like ( 1 2 3 ...)");
+                    continue;
+                }
                 
                 if (randomNumber > userNumber)
                 {
