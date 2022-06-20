@@ -16,20 +16,19 @@
             int numberOfGuesses = 0;
             int randomNumber = random.Next(minNumber, maxNumber);
             int number = 1234567890;
+            
 
 
             for (int i = 0; i <= limitGuesses; i++)
             {
-
+               
                 Console.WriteLine("Please enter the number you are thinking :");
-                int userNumber = Convert.ToInt32(Console.ReadLine());
-                bool s = int.TryParse(userNumber, out number);
-                if (!s)
+                bool userNumber = int.TryParse(Console.ReadLine(), out number);
+                if (!userNumber)
                 {
-                    Console.WriteLine("Please insert a whole number , like ( 1 2 3 ...)");
-                    continue;
+                    Console.WriteLine("Please insert a whole number , like 1,2,3,4 ...");
+                    return;
                 }
-                
                 if (randomNumber > userNumber)
                 {
                     Console.WriteLine("The number is to low");
@@ -60,6 +59,7 @@
                         break;
                     }
                 }
+               
             }
         }
     }
