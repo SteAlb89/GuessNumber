@@ -12,48 +12,44 @@ namespace highLowNumbers
             Random random = new Random();
             int minNumber = 0;
             int maxNumber = 101;
-            bool keepPlaying = true;
             int limitGuesses = 5;
             int numberOfGuesses = 0;
             int randomNumber = random.Next(minNumber, maxNumber);
 
-            while (keepPlaying)             
+            for (int i = 0; i <= limitGuesses; i++)
             {
+               
                 Console.WriteLine("Please enter the number you are thinking :");
                 int userNumber = Convert.ToInt32(Console.ReadLine());
 
-                if (randomNumber > userNumber)
-                {
-                    Console.WriteLine("The number is to low");
-                    Console.WriteLine($"You have only {limitGuesses - numberOfGuesses} left !");
-                    numberOfGuesses++;
-                }
-                else if (randomNumber < userNumber)
+
+                    if (randomNumber > userNumber)
+                    {
+                        Console.WriteLine("The number is to low");
+                        Console.WriteLine($"You have only {limitGuesses - numberOfGuesses} left !");
+                        numberOfGuesses++;
+                    }
+                if (randomNumber < userNumber)
                 {
                     Console.WriteLine("The number is to high");
                     Console.WriteLine($"You have only {limitGuesses - numberOfGuesses} left !");
                     numberOfGuesses++;
-                }
-                else
-                {
                     if (randomNumber == userNumber)
                     {
                         Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
                     }
-                       
-                    else
+                    if (limitGuesses == 5)
                     {
                         Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
-                    }
-                    Console.WriteLine("Would you like to play again? Press y or n ");
-                    string quit = Console.ReadLine();
-                    if (quit == "n")
-                    {
-                        keepPlaying = false;
-                        break;
+                        Console.WriteLine("Would you like to play again? Press y or n ");
+                        string quit = Convert.ToString(Console.ReadLine());
+                        if (quit == "n")
+                        {
+                            break;
+                        }
                     }
                 }
-            }         
+            }          
         }
     }
 }
