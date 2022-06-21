@@ -24,11 +24,13 @@
                 bool userNumber = int.TryParse(Console.ReadLine(), out number);
                 
 
-                if (int.TryParse(Console.ReadLine(), out number))
+                if (!userNumber)
                 {
                     Console.WriteLine("Please insert a whole number , like 1,2,3,4 ...");
-                    return;
+                    continue;
                 }
+
+                     
                 if (randomNumber > number)
                 {
                     Console.WriteLine("The number is to low");
