@@ -15,37 +15,33 @@
             int limitGuesses = 5;
             int numberOfGuesses = 0;
             int randomNumber = random.Next(minNumber, maxNumber);
-            
-            
-            
-
+            int number;
 
             for (int i = 0; i <= limitGuesses; i++)
             {
                
                 Console.WriteLine("Please enter the number you are thinking :");
-                int userNumber = Console.ReadLine();
-                int number = 1234567890;
+                bool userNumber = int.TryParse(Console.ReadLine(), out number);
+                
 
-               bool go = int.TryParse(userNumber, out number);
-                if (go == true)
+                if (int.TryParse(Console.ReadLine(), out number))
                 {
                     Console.WriteLine("Please insert a whole number , like 1,2,3,4 ...");
                     return;
                 }
-                if (randomNumber > userNumber)
+                if (randomNumber > number)
                 {
                     Console.WriteLine("The number is to low");
                     Console.WriteLine($"You have only {limitGuesses - numberOfGuesses} left !");
                     numberOfGuesses++;
                 }
-                if (randomNumber < userNumber)
+                if (randomNumber < number)
                 {
                     Console.WriteLine("The number is to high");
                     Console.WriteLine($"You have only {limitGuesses - numberOfGuesses} left !");
                     numberOfGuesses++;
                 }
-                if (randomNumber == userNumber)
+                if (randomNumber == number)
                 {
                     Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");                   
                 }
