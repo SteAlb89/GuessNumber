@@ -17,7 +17,7 @@
             int randomNumber = random.Next(minNumber, maxNumber);
             int number;
 
-            for (int i = 0; i <= limitGuesses; i++)
+            for (int i = 0; i <= limitGuesses; i--)
             {
                 Console.WriteLine("Please enter the number you are thinking :");
                 bool userNumber = int.TryParse(Console.ReadLine(), out number);
@@ -30,21 +30,23 @@
                 if (randomNumber > number)
                 {
                     Console.WriteLine("The number is to low");
-                    Console.WriteLine($"You have only {limitGuesses - numberOfGuesses} left !");
-                    numberOfGuesses++;
+                    Console.WriteLine($"You have only {limitGuesses} left !");
+                    
                 }
                 if (randomNumber < number)
                 {
                     Console.WriteLine("The number is to high");
-                    Console.WriteLine($"You have only {limitGuesses - numberOfGuesses} left !");
-                    numberOfGuesses++;
+                    Console.WriteLine($"You have only {limitGuesses} left !");
+                   
                 }
                 if (randomNumber == number)
                 {
                     Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
 
                 }
-                if (limitGuesses == numberOfGuesses - 1)
+                limitGuesses--;
+                
+                if (limitGuesses == 0)
                 {
                     Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
                     Console.WriteLine("Would you like to play again? Press y or n ");
