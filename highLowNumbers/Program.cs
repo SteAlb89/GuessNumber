@@ -6,8 +6,8 @@
         {
             Console.WriteLine("You have to choose a number between 1 - 100");
             Console.WriteLine("Let's see if you can guess my number. Good Luck! ");
-            Console.WriteLine("PS : You only have 6 attempts");
-            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("PS : You only have 5 attempts");
+            Console.WriteLine("----------------------------------------------------");
 
             Random random = new Random();
             int minNumber = 0;
@@ -16,50 +16,62 @@
             int numberOfGuesses = 0;
             int randomNumber = random.Next(minNumber, maxNumber);
             int number;
-
-            for (int i = 0; i <= limitGuesses; i--)
+            bool playAgain = true;
+            while (playAgain)
             {
-                Console.WriteLine("Please enter the number you are thinking :");
-                bool userNumber = int.TryParse(Console.ReadLine(), out number);
-
-                if (!userNumber)
+                for (int i = 0; i < limitGuesses; i--)
                 {
-                    Console.WriteLine("Please insert a whole number , like 1,2,3,4 ...");
-                    continue;
-                }
-                if (randomNumber > number)
-                {
-                    Console.WriteLine("The number is to low");
-                    Console.WriteLine($"You have only {limitGuesses} left !");
+                    Console.WriteLine("Please enter the number you are thinking :");
+                    bool userNumber = int.TryParse(Console.ReadLine(), out number);
                     
-                }
-                if (randomNumber < number)
-                {
-                    Console.WriteLine("The number is to high");
-                    Console.WriteLine($"You have only {limitGuesses} left !");
-                   
-                }
-                if (randomNumber == number)
-                {
-                    Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
 
-                }
-                limitGuesses--;
-                
-                if (limitGuesses == 0)
-                {
-                    Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
-                    Console.WriteLine("Would you like to play again? Press y or n ");
-                    string quit = Console.ReadLine();
-                    if (quit == "y")
+                    if (!userNumber)
                     {
-                        continue;
+                        Console.WriteLine("Please insert a whole number , like 1,2,3,4 ...");
+                        playAgain = true;
                     }
-                    else
+                    if (randomNumber > number)
                     {
+                        Console.WriteLine("The number is to low");
+                        Console.WriteLine($"You have only {limitGuesses} left !");
+                        limitGuesses--;
+                        numberOfGuesses++;
+                    }
+                    if (randomNumber < number)
+                    {
+                        Console.WriteLine("The number is to high");
+                        Console.WriteLine($"You have only {limitGuesses} left !");
+                        limitGuesses--;
+                        numberOfGuesses++;
+                    }
+                    if (randomNumber == number)
+                    {
+                        Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
+                        numberOfGuesses++;
+                        limitGuesses = 5;
                         break;
                     }
+                    if (randomNumber != number && limitGuesses == 0)
+
+                       
+                    {
+                        Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
+                        Console.WriteLine("Would you like to play again? Press y or n ");
+                        limitGuesses = 5;
+                        string quit = Console.ReadLine();
+                        quit = quit.ToUpper();
+                        if (quit == "y")
+                        {
+                            playAgain = true;
+                        }
+                        else
+                        {
+                            playAgain = false;
+                        }
+                    }
                 }
+                
+                Console.WriteLine("Thank for playing ! See you, next time !!! ");
             }
         }
     }
