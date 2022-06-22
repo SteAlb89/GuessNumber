@@ -5,8 +5,8 @@
         static void Main(string[] args)
         {
             Console.WriteLine("You have to choose a number between 1 - 100");
-            Console.WriteLine("Let's see if you can guess my number. Good Luck");
-            Console.WriteLine("PS : You onlye have 6 attempts");
+            Console.WriteLine("Let's see if you can guess my number. Good Luck! ");
+            Console.WriteLine("PS : You only have 6 attempts");
             Console.WriteLine("------------------------------------------");
 
             Random random = new Random();
@@ -19,18 +19,14 @@
 
             for (int i = 0; i <= limitGuesses; i++)
             {
-               
                 Console.WriteLine("Please enter the number you are thinking :");
                 bool userNumber = int.TryParse(Console.ReadLine(), out number);
-                
 
                 if (!userNumber)
                 {
                     Console.WriteLine("Please insert a whole number , like 1,2,3,4 ...");
                     continue;
                 }
-
-                     
                 if (randomNumber > number)
                 {
                     Console.WriteLine("The number is to low");
@@ -45,13 +41,14 @@
                 }
                 if (randomNumber == number)
                 {
-                    Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");                   
+                    Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
+
                 }
                 if (limitGuesses == numberOfGuesses - 1)
                 {
                     Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
                     Console.WriteLine("Would you like to play again? Press y or n ");
-                    string quit = Convert.ToString(Console.ReadLine());
+                    string quit = Console.ReadLine();
                     if (quit == "y")
                     {
                         continue;
@@ -61,7 +58,6 @@
                         break;
                     }
                 }
-               
             }
         }
     }
