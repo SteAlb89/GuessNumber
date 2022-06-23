@@ -7,11 +7,11 @@
             int minNumber = 0;
             int maxNumber = 4;         
             int numberOfGuesses = 0;
-
+            Console.WriteLine("----------------------------------------------------");
             Console.WriteLine($"You have to choose a number between {minNumber} - {maxNumber}");
             Console.WriteLine("Let's see if you can guess my number. Good Luck! ");
             Console.WriteLine($"PS : You only have {numberOfGuesses} attempts");
-            Console.WriteLine("----------------------------------------------------");
+            
 
             Random random = new Random();
             int randomNumber = random.Next(minNumber, maxNumber);
@@ -24,7 +24,9 @@
                 
                 for (int i = 5; i >= limitGuesses; i--)
                 {
+                    Console.WriteLine("----------------------------------------------------");
                     Console.WriteLine("Please enter the number you are thinking :");
+                    Console.WriteLine("----------------------------------------------------");
                     bool userNumber = int.TryParse(Console.ReadLine(), out number);
 
                     if (!userNumber)
@@ -66,7 +68,7 @@
                 }
                 else
                 {
-                    Console.WriteLine("You should enter y or n , not other letters ! Thank you !");
+                    
                     playAgain = false;
                 }
                 
