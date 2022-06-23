@@ -15,7 +15,6 @@
 
             Random random = new Random();
             int randomNumber = random.Next(minNumber, maxNumber);
-
             bool playAgain = true;
 
             while (playAgain)
@@ -23,7 +22,6 @@
                 int number;
                 int limitGuesses = 0;
                 
-
                 for (int i = 5; i >= limitGuesses; i--)
                 {
                     Console.WriteLine("Please enter the number you are thinking :");
@@ -50,13 +48,11 @@
                     {
                         Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
                         numberOfGuesses++;
-
                     }
                     if (i == 0)                      
                     {
                         Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
                         Console.WriteLine("Would you like to play again? Press y or n ");
-                        i = 0;
                         string quit = Console.ReadLine();
                         quit = quit.ToLower();
                         if (quit == "y")
@@ -69,8 +65,7 @@
                             playAgain = false;
                         }
                     }
-                }
-                
+                }               
                 Console.WriteLine("Thank for playing ! See you, next time !!! ");
             }
         }
