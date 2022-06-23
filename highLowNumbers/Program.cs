@@ -4,17 +4,18 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("You have to choose a number between 1 - 100");
+            int minNumber = 0;
+            int maxNumber = 4;
+            
+            int numberOfGuesses = 0;
+            Console.WriteLine($"You have to choose a number between {minNumber} - {maxNumber}");
             Console.WriteLine("Let's see if you can guess my number. Good Luck! ");
-            Console.WriteLine("PS : You only have 6 attempts");
+            Console.WriteLine("PS : You only have {numberOfGuesses} attempts");
             Console.WriteLine("----------------------------------------------------");
 
             Random random = new Random();
-            int minNumber = 0;
-            int maxNumber = 4;
-            int numberOfGuesses = 0;
             int randomNumber = random.Next(minNumber, maxNumber);
-            
+
             bool playAgain = true;
 
             while (playAgain)
@@ -31,7 +32,7 @@
                     if (!userNumber)
                     {
                         Console.WriteLine("Please insert a whole number , like 1,2,3,4 ...");
-                        playAgain = true;
+                        return;
                     }
                     if (randomNumber > number)
                     { 
@@ -51,9 +52,7 @@
                         numberOfGuesses++;
 
                     }
-                    if (i == 0)
-
-                       
+                    if (i == 0)                      
                     {
                         Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
                         Console.WriteLine("Would you like to play again? Press y or n ");
@@ -66,6 +65,7 @@
                         }
                         else
                         {
+                            Console.WriteLine("You should enter y or n , not other letters ! Thank you !");
                             playAgain = false;
                         }
                     }
