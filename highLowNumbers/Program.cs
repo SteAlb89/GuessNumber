@@ -37,18 +37,18 @@
                     { 
                         Console.WriteLine("The number is to low");
                         Console.WriteLine($"You have only {i} left !");
-                        
+                        numberOfGuesses++;
                     }
                     if (randomNumber < number)
                     {
                         Console.WriteLine("The number is to high");
                         Console.WriteLine($"You have only {i} left !");
-                        
+                        numberOfGuesses++;
                     }
                     if (randomNumber == number)
                     {
-                        Console.WriteLine($"YOU WON !!! You tried : {i} times");
-                        
+                        Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
+                        numberOfGuesses++;
 
                     }
                     if (i == 0)
