@@ -30,7 +30,7 @@
                     if (!userNumber)
                     {
                         Console.WriteLine("Please insert a whole number , like 1,2,3,4 ...");
-                        return;
+                        continue;
                     }
                     if (randomNumber > number)
                     { 
@@ -46,28 +46,33 @@
                     }
                     if (randomNumber == number)
                     {
+                        Console.WriteLine("Congratulation !!!");
                         Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
                         numberOfGuesses++;
+                        break;                      
                     }
-                    if (i == 0)                      
+                    if (i == 0)
                     {
                         Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
-                        Console.WriteLine("Would you like to play again? Press y or n ");
-                        string quit = Console.ReadLine();
-                        quit = quit.ToLower();
-                        if (quit == "y")
-                        {
-                            playAgain = true;
-                        }
-                        else
-                        {
-                            Console.WriteLine("You should enter y or n , not other letters ! Thank you !");
-                            playAgain = false;
-                        }
-                    }
-                }               
-                Console.WriteLine("Thank for playing ! See you, next time !!! ");
+
+                    }                   
+                }
+                Console.WriteLine("Would you like to play again? Press y or n ");
+                string quit = Console.ReadLine();
+                quit = quit.ToLower();
+                if (quit == "y")
+                {
+                    playAgain = true;
+                }
+                else
+                {
+                    Console.WriteLine("You should enter y or n , not other letters ! Thank you !");
+                    playAgain = false;
+                }
+                
             }
+            Console.WriteLine("Thank for playing ! See you, next time !!! ");
         }
+        
     }
 }
