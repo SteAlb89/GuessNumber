@@ -5,12 +5,12 @@
         static void Main(string[] args)
         {
             int minNumber = 0;
-            int maxNumber = 4;
-            
+            int maxNumber = 4;         
             int numberOfGuesses = 0;
+
             Console.WriteLine($"You have to choose a number between {minNumber} - {maxNumber}");
             Console.WriteLine("Let's see if you can guess my number. Good Luck! ");
-            Console.WriteLine("PS : You only have {numberOfGuesses} attempts");
+            Console.WriteLine($"PS : You only have {numberOfGuesses} attempts");
             Console.WriteLine("----------------------------------------------------");
 
             Random random = new Random();
