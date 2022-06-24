@@ -65,6 +65,7 @@
                 if (quit == "y")
                 {
                     playAgain = true;
+                    numberOfGuesses = 0;
                 }
                 else
                 {
@@ -73,7 +74,7 @@
                 }
                 
             }
-            Console.WriteLine("Thank for playing ! See you, next time !!! ");
+            Console.WriteLine("Thanks for playing ! See you, next time !!! ");
         }
         
     }
