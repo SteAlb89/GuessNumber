@@ -7,23 +7,24 @@
             int minNumber = 0;
             int maxNumber = 101;         
             int numberOfGuesses = 0;
+            int attempts = 6;
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine($"You have to choose a number between {minNumber} - {maxNumber}");
             Console.WriteLine("Let's see if you can guess my number. Good Luck! ");
-            Console.WriteLine($"PS : You only have 6 attempts");
+            Console.WriteLine($"PS : You only have {attempts} attempts");
             
 
             Random random = new Random();
             int randomNumber = random.Next(minNumber, maxNumber);
             bool playAgain = true;
+            
 
             while (playAgain)
             {
                 int number;
                 int limitGuesses = 0;
-                numberOfGuesses = 0;
-
-                for (int i = 5; i >= limitGuesses; i--)
+                
+                for (int i = attempts -1; i >= limitGuesses; i--)
                 {
                     Console.WriteLine("----------------------------------------------------");
                     Console.WriteLine("Please enter the number you are thinking :");
