@@ -4,16 +4,19 @@
     {
         static void Main(string[] args)
         {
-            int minNumber = 0;
-            int maxNumber = 101;         
-            int numberOfGuesses = 0;
+
+            int minNumber = 1;
+            int maxNumber = 2;         
+            int numberOfGuesses = 1;
             int attempts = 6;
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine($"You have to choose a number between {minNumber} - {maxNumber}");
             Console.WriteLine("Let's see if you can guess my number. Good Luck! ");
             Console.WriteLine($"PS : You only have {attempts} attempts");
             
-
+            //Create a random number
+            //Create a variable to store the guess
+            //Create a while loop untill we get our desired outcome 
             Random random = new Random();
             int randomNumber = random.Next(minNumber, maxNumber);
             bool playAgain = true;
@@ -26,9 +29,12 @@
                 int limitGuesses = 0;
                 
 
-
-                for (int i = attempts -1; i >= limitGuesses; i--)
+                //create a for loop , for limit the user guesses
+                for (int i = attempts-1; i >= limitGuesses; i--)
                 {
+                    //Asking the user to introduce a number
+                    //Parse the result as an integer
+                    //Adding condition to show if he is close to his own guess
                     Console.WriteLine("----------------------------------------------------");
                     Console.WriteLine("Please enter the number you are thinking :");
                     Console.WriteLine("----------------------------------------------------");
@@ -52,15 +58,14 @@
                         Console.WriteLine($"You have only {i} left !");
                         
                     }
-                    if(closerGuesses <= 5)
+                    if(closerGuesses <= 3)
                     {
                         Console.WriteLine("You are soooo close to my number !!! ");
                     }
                     if (randomNumber == number)
                     {
                         Console.WriteLine("Congratulation !!!");
-                        Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
-                        
+                        Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");                        
                         break;                      
                     }
                     if (i == 0)
@@ -69,7 +74,9 @@
 
                     }
                     numberOfGuesses++;
+                    
                 }
+                //create a response if the user want's to play again 
                 Console.WriteLine("Would you like to play again? Press y or n ");
                 string response = Console.ReadLine();
                 response = response.ToLower();
@@ -83,6 +90,7 @@
                 }
                 
             }
+            //create a message to thanks for playing
             Console.WriteLine("Thanks for playing ! See you, next time !!! ");
         }
         
