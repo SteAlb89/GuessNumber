@@ -21,7 +21,8 @@
             {
                 int number;
                 int limitGuesses = 0;
-                
+                numberOfGuesses = 0;
+
                 for (int i = 5; i >= limitGuesses; i--)
                 {
                     Console.WriteLine("----------------------------------------------------");
@@ -60,12 +61,12 @@
                     }                   
                 }
                 Console.WriteLine("Would you like to play again? Press y or n ");
-                string quit = Console.ReadLine();
-                quit = quit.ToLower();
-                if (quit == "y")
+                string response = Console.ReadLine();
+                response = response.ToLower();
+                if (response == "y")
                 {
                     playAgain = true;
-                    numberOfGuesses = 0;
+                    
                 }
                 else
                 {
