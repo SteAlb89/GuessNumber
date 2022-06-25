@@ -18,18 +18,22 @@
             int randomNumber = random.Next(minNumber, maxNumber);
             bool playAgain = true;
             
+            
 
             while (playAgain)
             {
                 int number;
                 int limitGuesses = 0;
                 
+
+
                 for (int i = attempts -1; i >= limitGuesses; i--)
                 {
                     Console.WriteLine("----------------------------------------------------");
                     Console.WriteLine("Please enter the number you are thinking :");
                     Console.WriteLine("----------------------------------------------------");
                     bool userNumber = int.TryParse(Console.ReadLine(), out number);
+                    int closerGuesses = randomNumber - number;
 
                     if (!userNumber)
                     {
@@ -47,6 +51,10 @@
                         Console.WriteLine("The number is to high");
                         Console.WriteLine($"You have only {i} left !");
                         
+                    }
+                    if(closerGuesses <= 5)
+                    {
+                        Console.WriteLine("You are soooo close to my number !!! ");
                     }
                     if (randomNumber == number)
                     {
