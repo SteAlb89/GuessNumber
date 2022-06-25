@@ -39,38 +39,37 @@
                     { 
                         Console.WriteLine("The number is to low");
                         Console.WriteLine($"You have only {i} left !");
-                        numberOfGuesses++;
+                        
                     }
                     if (randomNumber < number)
                     {
                         Console.WriteLine("The number is to high");
                         Console.WriteLine($"You have only {i} left !");
-                        numberOfGuesses++;
+                        
                     }
                     if (randomNumber == number)
                     {
                         Console.WriteLine("Congratulation !!!");
                         Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
-                        numberOfGuesses++;
+                        
                         break;                      
                     }
                     if (i == 0)
                     {
                         Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
 
-                    }                   
+                    }
+                    numberOfGuesses++;
                 }
                 Console.WriteLine("Would you like to play again? Press y or n ");
                 string response = Console.ReadLine();
                 response = response.ToLower();
                 if (response == "y")
                 {
-                    playAgain = true;
-                    
+                    playAgain = true;                   
                 }
                 else
-                {
-                    
+                {                    
                     playAgain = false;
                 }
                 
