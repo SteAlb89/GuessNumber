@@ -6,7 +6,7 @@
         {
 
             int minNumber = 1;
-            int maxNumber = 5;         
+            int maxNumber = 100;         
             int numberOfGuesses = 1;
             int attempts = 6;
             Console.WriteLine("----------------------------------------------------");
