@@ -6,7 +6,7 @@
         {
 
             int minNumber = 1;
-            int maxNumber = 2;         
+            int maxNumber = 101;         
             int numberOfGuesses = 1;
             int attempts = 6;
             Console.WriteLine("----------------------------------------------------");
@@ -38,10 +38,10 @@
                     Console.WriteLine("----------------------------------------------------");
                     Console.WriteLine("Please enter the number you are thinking :");
                     Console.WriteLine("----------------------------------------------------");
-                    bool userNumber = int.TryParse(Console.ReadLine(), out number);
+                    bool validNumber = int.TryParse(Console.ReadLine(), out number);
                     int closerGuesses = randomNumber - number;
 
-                    if (!userNumber)
+                    if (!validNumber)
                     {
                         Console.WriteLine("Please insert a whole number , like 1,2,3,4 ...");
                         continue;
