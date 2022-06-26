@@ -6,7 +6,7 @@
         {
 
             int minNumber = 1;
-            int maxNumber = 101;         
+            int maxNumber = 5A;         
             int numberOfGuesses = 1;
             int attempts = 6;
             Console.WriteLine("----------------------------------------------------");
@@ -39,7 +39,7 @@
                     Console.WriteLine("Please enter the number you are thinking :");
                     Console.WriteLine("----------------------------------------------------");
                     bool validNumber = int.TryParse(Console.ReadLine(), out number);
-                    int closerGuesses = randomNumber - number;
+                    int closerGuesses = Math.Abs(randomNumber - number);
 
                     if (!validNumber)
                     {
@@ -58,16 +58,17 @@
                         Console.WriteLine($"You have only {i} left !");
                         
                     }
-                    if(closerGuesses <= 3)
-                    {
-                        Console.WriteLine("You are soooo close to my number !!! ");
-                    }
                     if (randomNumber == number)
                     {
                         Console.WriteLine("Congratulation !!!");
-                        Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");                        
-                        break;                      
+                        Console.WriteLine($"YOU WON !!! You tried : {numberOfGuesses} times");
+                        break;
                     }
+                    if (closerGuesses <= 3) //this only works correctly if guessed number is smaller than the random numnber
+                    {
+                        Console.WriteLine("You are soooo close to my number !!! ");
+                    }
+                  
                     if (i == 0)
                     {
                         Console.WriteLine($"You Lost !!! You tried : {numberOfGuesses} times");
